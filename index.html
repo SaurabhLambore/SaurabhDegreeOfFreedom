@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Degree of freedom</title>
+  </head>
+  <body>
+    <label>Enter the number of links: </label
+    ><input id="ip1" placeholder="Enter here" /><br /><br />
+    <label>Enter the number of binary joints: </label
+    ><input id="ip2" placeholder="Enter the joint number" /><br /><br />
+    <button onclick="dof()">Submit</button><br /><br />
+    <div id="op">Get Here answer</div>
+    <br /><br />
+    <div id="op2"></div>
+
+    <script>
+      function dof() {
+        var a, b;
+        let d;
+        
+        a = parseInt(document.getElementById("ip1").value);
+        b = parseInt(document.getElementById("ip2").value);
+
+        d = (3 * (a - 1)) - b * 2; //formula of degree of freedom is dof=3(l-2)-2j l=no.of links, j=no.of joints
+        document.getElementById("op").innerHTML = d;
+        
+        
+
+        if ((d == 0)) 
+        {
+       
+          document.getElementById("op2").innerHTML =
+            "Is a structure, no relative motion between them"; 
+        }
+         else if ((d == 1)) {
+          document.getElementById("op2").innerHTML =
+            "Is a mechanism can be driven by a single input motion";
+            
+        } else if ((d == 2)) {
+          document.getElementById("op2").innerHTML =
+            "Is a mechanism two seprate input motions are necessary to produce constrained motion for the mechanism";
+        } else {
+          document.getElementById("op2").innerHTML = "Enter correct value";
+        }
+      }
+    </script>
+  </body>
+</html>
